@@ -1,0 +1,21 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.logo a{
+    text-decoration: none;
+    color: white;
+}
+.lista{
+    list-style: none;
+    display: flex;
+}
+.item a{
+    text-decoration: none;
+    color: white;
+}
+.item a:hover{
+    color: #e1ed89;
+}
