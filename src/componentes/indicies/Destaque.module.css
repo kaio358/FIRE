@@ -1,0 +1,7 @@
+.destaque_container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 5px;
+    margin: 10px 0;
+}

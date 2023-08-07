@@ -1,0 +1,19 @@
+.card{
+    padding: 5px;
+    width: 25%;
+    text-align: center;
+   
+    border-radius: 5px;
+
+}
+.card div{
+    margin-bottom: 2em;
+}
+.card svg{
+    background-color: #D4EE5E;
+    color: white;
+    padding: 5px;
+    font-size: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}

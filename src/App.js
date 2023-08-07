@@ -10,6 +10,8 @@ import ParteSuperior from './componentes/layout/ParteSuperior';
 
 // indicies
 import Home from './componentes/indicies/Home';
+
+import Destaque from './componentes/indicies/Destaque';
 // import Footer from './componentes/layout/Footer'
 function App() {
   return (
@@ -20,14 +22,16 @@ function App() {
         <Container customClass="min-height">
           <Routes>
             <Route exact path='/' element={<Home/>}/>
-            {/* <Route exact path='/sobre' element={<Sobre/>}/> */}
+        
             {/* <Route exact path='/dados' element={<Dados/>}/> */}
             {/* <Route exact path='/contato' element={<Contato/>}/> */}
           
           </Routes>
+
         </Container>
       </ParteSuperior>
-     
+   
+     <Destaque/>
     {/* <Footer/> */}
     </Router>
   );
