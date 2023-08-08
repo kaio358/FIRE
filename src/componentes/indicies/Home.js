@@ -7,7 +7,7 @@ function Home (){
 
                 <h1>FIRE</h1>
                 <div>
-                    <p>Projeto feito em parcerias para zelar as nossas florestas. Com os aumentos de focos de incêndios é necessário encontrar de forma rápida para não se grande problema, destruindo a fauna, é por isso que o modulo FIRE tem o princípio de detectar.</p>
+                    <p>Projeto feito em parcerias para zelar as nossas florestas. Com os aumentos de focos de incêndios é necessário encontrar de forma rápida para não se degradar a fauna, é por isso que o modulo FIRE tem o princípio de detectar.</p>
                 </div>
                 
             

@@ -1,0 +1,14 @@
+.dados_de_incendios_container{
+    background-color: #d2dae2;
+    margin: 10px 0;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+.introducao_dados{
+    
+    flex-direction: column;
+    width: 50%;
+ 
+
+}

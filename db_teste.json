@@ -11,9 +11,20 @@
             "icon_id":1
         },
         {
-            "nome":"Conexão",
-            "texto":"As conexões entre detectores forma uma rede, onde cada pode realizar uma passagem de informações para outro, escolhendo o melhor trajeto. Essas conexões podem ser efetuadas tanto por bluetooth e wi-fi",
-            "icon_id":1
+            "nome":"Integração",
+            "texto":"O proposito é proteger a nossas florestas, detectando incêndios, de tal modo que o objeto seja integrado a floresta sem que possa parecer deslocado ou incomodo para os animais.",
+            "icon_id":2
+        },
+        
+        {
+            "nome":"Camuflagem",
+            "texto":"O protótipo estará camuflado entre as árvores, devido a sua carcaça de madeira para se naturalizar ao meio da ambiente.",
+            "icon_id":3
+        },
+        {
+            "nome":"Descartavel",
+            "texto":"Em um incêndio o objeto pode ser facilmente descartável em troca para salvar a natureza e os animais que habitam.",
+            "icon_id":4
         }
     ]
 }
