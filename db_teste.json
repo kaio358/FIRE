@@ -1,0 +1,19 @@
+{
+    "cards":[
+        {
+            "nome":"Localização",
+            "texto":"A localização de cada detector terá uma distância considerável perto/media distancia, mesmo que perca um detector em um incêndio causado um incêndio espontâneo o mais perto detectará e informará a central mais rápido possível",
+            "icon_id":0
+        },
+        {
+            "nome":"Conexão",
+            "texto":"As conexões entre detectores forma uma rede, onde cada pode realizar uma passagem de informações para outro, escolhendo o melhor trajeto. Essas conexões podem ser efetuadas tanto por bluetooth e wi-fi",
+            "icon_id":1
+        },
+        {
+            "nome":"Conexão",
+            "texto":"As conexões entre detectores forma uma rede, onde cada pode realizar uma passagem de informações para outro, escolhendo o melhor trajeto. Essas conexões podem ser efetuadas tanto por bluetooth e wi-fi",
+            "icon_id":1
+        }
+    ]
+}
