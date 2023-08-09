@@ -1,14 +1,37 @@
 .dados_de_incendios_container{
-    background-color: #d2dae2;
+    /* background-color: #d2dae2; */
     margin: 10px 0;
     display: flex;
     text-align: center;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 5px;
+    gap: 10px;
 }
 .introducao_dados{
     
-    flex-direction: column;
     width: 50%;
  
 
+
+}
+.introducao_dados h1{
+    margin-bottom: 8px;
+}
+.imgs_dados{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 10px 0;
+
+ 
+}
+.imgs_dados a{
+    align-self: center;
+
+}
+.imgs_dados img{
+    max-width: 650px;
+    max-height: 650px;
 }

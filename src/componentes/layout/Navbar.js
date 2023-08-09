@@ -13,8 +13,9 @@ function Navbar(){
                
                 <ul className={styles.lista}>
                     <li className={styles.item}><Link to='/' >Home</Link></li>
+                    <li className={styles.item}><Link to='/#dados_de_incendios' >Dados de incêndios</Link></li>
                     <li className={styles.item}><Link to='/#destaque' >Destaque</Link></li>
-                    <li className={styles.item}><Link to='/#dados_de_incendios' >Dados de incendios</Link></li>
+                   
                 </ul>
                 
             </Container>

@@ -31,9 +31,9 @@ function App() {
 
         </Container>
       </ParteSuperior>
-   
+      <DadosIncendios/>
      <Destaque/>
-     <DadosIncendios/>
+     
     {/* <Footer/> */}
     </Router>
   );

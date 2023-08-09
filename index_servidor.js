@@ -1,14 +1,27 @@
-const express = require("express")
+const express = require("express");
+const http = require("http");  
+const socketIo = require("socket.io");  
 
-const app = express()
+const app = express();
 const cors = require("cors");
+const server = http.createServer(app);  
 
-const cards = require("./rotas/cards") 
+const io = socketIo(server);  
+
+const cards = require("./rotas/cards");
 
 app.use(cors());
-app.use('/',cards)
-app.listen(5000,()=>{
-    console.log("funcionando!!");
-    
+app.use("/", cards);
 
-})
+io.on("connection", (socket) => {
+  console.log("A new socket connection has been established!");
+
+
+  socket.on("disconnect", () => {
+    console.log("A socket connection has been disconnected!");
+  });
+});
+
+server.listen(5000, () => {
+  console.log("funcionando!!");
+});

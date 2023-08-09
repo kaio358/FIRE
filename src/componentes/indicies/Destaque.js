@@ -5,7 +5,7 @@ import {ImLocation,ImConnection,ImLeaf ,ImEyeBlocked,ImBin2} from "react-icons/i
 import styles from  "./Destaque.module.css"
 
 import Cards from "../especificacoes/Cards"
-import Container from "../layout/Container"
+
 
 function Destaque(){
     const icons = [<ImLocation/>,<ImConnection/>,<ImLeaf/>,<ImEyeBlocked/>,<ImBin2/>]
