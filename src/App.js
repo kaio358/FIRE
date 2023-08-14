@@ -13,6 +13,7 @@ import Home from './componentes/indicies/Home';
 
 import Destaque from './componentes/indicies/Destaque';
 import DadosIncendios from './componentes/indicies/DadosIncendios';
+import DadosPrototipo from './componentes/indicies/DadosPrototipo';
 // import Footer from './componentes/layout/Footer'
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
       </ParteSuperior>
       <DadosIncendios/>
      <Destaque/>
+     <DadosPrototipo/>
      
     {/* <Footer/> */}
     </Router>
