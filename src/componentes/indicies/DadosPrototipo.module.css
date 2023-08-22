@@ -1,0 +1,43 @@
+.dsp{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.3)),  url("../../img/tela_de_fundo/floresa_amazonica.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+   
+    height: 600px;
+    margin-top: 5px;
+    text-align: center;
+    color: white;
+}
+
+.caixaDeDados{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+
+   
+  
+}
+.divsDados{
+    background: transparent;
+    box-shadow: 0 8px 10px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 10.5px );
+    border: 2px solid white;
+ 
+  
+    
+}
+
+.divTemperatura{
+    font-size: 35px;
+    font-weight: 500;
+    
+    padding: 10px;
+}

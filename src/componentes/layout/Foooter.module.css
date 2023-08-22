@@ -1,0 +1,27 @@
+.divFooter{
+    background-color:  #ff5e57;
+    color: white;
+    text-align: center;
+    border-top: 5px solid white ;
+    padding: 10px 0;
+}
+.divFooter h1{
+    margin: 10px 0;
+}
+
+.listaColab{
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    
+}
+
+.divLinks{
+    display: flex;
+    justify-content: space-around;
+}
+.listaColab a{
+ 
+    cursor: pointer;
+    font-size: 50px;
+}

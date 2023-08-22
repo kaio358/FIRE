@@ -9,7 +9,7 @@ const server = http.createServer(app);
 
 const io = socketIo(server, {
   cors: {
-    origin: "*",
+    origin: "http://localhost:3000",
     methods: ["GET", "POST"]
   }
 });  
@@ -21,18 +21,15 @@ app.use(cors());
 app.use(express.json());
 app.use("/", cards);
 app.use("/",arduino_update(io))
+const arduinoData = {
+  "temperatura": 26,
+  "umidade": 60,
 
+};
 io.on("connection", (socket) => {
     console.log("Novo cliente conectado:", socket.id);
-
-    socket.on("novoArduinoData", () => {
-      const arduinoData = {
-        temperature: 25,
-        humidity: 60,
-
-      };
-      io.emit("novoArduinoData", arduinoData); 
-    });
+    io.emit("novoArduinoData",  arduinoData);
+ 
   socket.on("disconnect", () => {
     console.log('Cliente desconectado');
   });

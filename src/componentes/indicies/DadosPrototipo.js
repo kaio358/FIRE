@@ -1,4 +1,8 @@
+import styles from "./DadosPrototipo.module.css"
+
+
 import { useEffect,useState} from "react";
+import {PiThermometerBold,PiDropBold} from "react-icons/pi"
 
 import io from "socket.io-client";
 
@@ -7,19 +11,22 @@ function DadosPrototipo(){
 
     const [arduinoData, setArduinoData] = useState(null);
     useEffect(() => {
-        
-        
+      socket.connect()
       socket.on("novoArduinoData", (data) => {
         setArduinoData(data);
       });
       
     }, []);
-    console.log(arduinoData);
+
     return(
-        <div>
-            <h1>Arduino Data</h1>
+        <div className={styles.dsp}>
+            <h1>Dados do Fire</h1>
             {arduinoData ? (
-              <pre>{JSON.stringify(arduinoData, null, 2)}</pre>
+              <div className={styles.caixaDeDados}>
+                <div className={ `${styles.divTemperatura} ${styles.divsDados}`}>{arduinoData.temperatura}° {<PiThermometerBold/>} </div>
+                <div className={ `${styles.divTemperatura} ${styles.divsDados}`}>{arduinoData.umidade} {<PiDropBold/>} </div>
+              
+              </div>
             ) : (
               <p>Aguardando dados do Arduino...</p>
             )}
