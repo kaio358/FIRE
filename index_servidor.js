@@ -22,13 +22,14 @@ app.use(express.json());
 app.use("/", cards);
 app.use("/",arduino_update(io))
 const arduinoData = {
-  "temperatura": 26,
+  "temperatura": 28,
   "umidade": 60,
 
 };
 io.on("connection", (socket) => {
     console.log("Novo cliente conectado:", socket.id);
-    io.emit("novoArduinoData",  arduinoData);
+    
+  io.emit("novoArduinoData", JSON.stringify(arduinoData));
  
   socket.on("disconnect", () => {
     console.log('Cliente desconectado');

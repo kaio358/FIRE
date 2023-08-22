@@ -13,13 +13,14 @@ function DadosPrototipo(){
     useEffect(() => {
       socket.connect()
       socket.on("novoArduinoData", (data) => {
-        setArduinoData(data);
+
+        setArduinoData(JSON.parse(data) );
       });
       
     }, []);
 
     return(
-        <div className={styles.dsp}>
+        <div id="dados_prototipo" className={styles.dsp}>
             <h1>Dados do Fire</h1>
             {arduinoData ? (
               <div className={styles.caixaDeDados}>

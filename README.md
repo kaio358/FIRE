@@ -1,70 +1,88 @@
-# Getting Started with Create React App
+<h1>FIRE (site)</h1>
+<h2>Resumo<h2>
+<p>O site tem o intuito de apresentar o protótipo FIRE, e a necessidade para tal. Neste sentido o site e separado em 5 partes:</p>
+<ol>
+    <li>Apresentação</li>
+    <li>Dados de incêndios nos últimos anos</li>
+    <li>Principais características do protótipo</li>
+    <li>Dados vindo do protótipo</li>
+    <li>Colaboradores</li>
+</ol>
+<p>Falaremos sobre as motivações de escolhas para desenvolver a página</p>
+<h2>Introdução</h2>
+<p>Neste projeto foi feito para apresentar o protótipo FIRE, que tem o foco para um detector de incêndios, sendo que este site não será uma aplicação focada uma forma prática de um sistema para tal produto, mas sim, uma apresentação ao cliente que procura este tipo de produto para proteger a floresta. </p>
+<p>Para tal empreitada utilizamos react js (para o front end),css,node js (para o back end) e mysql, as dependências usadas foram : </p>
+<ul>
+    <li>react-icons (Alguns icones para o site)</li>
+    <li>react-router-dom (Linkar os conteúdos da página)</li>
+    <li>react-router-hash-link ( para navegar nos elementos da página)</li>
+    <li>Mysql (comunicar com o mysql)</li>
+    <li>express (Facilitar o processo de criação do server)</li>
+    <li>Cors (Permitir varias alterações, mais ao lado do server)</li>
+    <li>Socket.io (Dar informações em tempo real para o cliente)</li>
+</ul>
+<h2>Sumario </h2>
+<ol>
+    <li>
+        <a href="#parte_superior">Parte superior</a>
+        <ul>
+            <li>Como</li>
+            <li>Cores</li>
+        </ul>
+    </li>
+    <li>
+        NavBar
+        <ul>
+            <li>Como</li>
+            <li>Cores</li>
+        </ul>
+    </li>
+    <li>
+        Home
+        <ul>
+            <li>Como</li>
+            <li>Cores</li>
+        </ul>
+    </li>
+    
+</ol>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h2 id='parte_superior'>Parte superior</h2>
+<p>A parte superior é formada pelos conjutos NavBar e Home, sendo que NavBar pode passear junto com o usuario ao descer da página.</p>
+<p>A localização do arquivo é </p>
 
-## Available Scripts
+```
+|_ infraestrutura
+|_ modelos
+|_ public
+|_ rotas
+|_ src
+    |_ componentes 
+        |_ layout
+            ...
+            ParteSuperior.js
+            ParteSuperior.module.css
+    |_ img
+    ...
+```
+<p> Os arquivos .js e css, se auto compoem onde esse arquivo .css só servirá para o arquivo ParteSuperior, mas antes de dar uma olhada no arquivo .css, vamos dar uma olhada no ParteSuperior.js </p>
+<p>Olhando nas linhas de códigos podemos notar que os valores que preencheram o a div virá de outro arquivos, isso se dá por meio da props (propriedade) que está recebendo um valor de terceiros, assim tornando a div em um elemento pai.</p>
 
-In the project directory, you can run:
+```
+import styles from './ParteSuperior.module.css'
 
-### `npm start`
+function ParteSuperior(props){
+    return(
+        <div className={styles.principal}>
+            {props.children}
+        </div>
+    )
+}
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+export default ParteSuperior
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<p>As cores usadas foram baseadas no gráfico¹ de pizza que está classificada por meio da amazonia (#6f3b38).Entretanto nem sempre foi assim, a antiga cor era um vermelho mais claro (#ff424), devido a conversa entre o professor ao nosso grupo optamos a cor mais escura, pois a mais clara após um tempo cansaria a vista do usuario da página  </p>
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<p>Gráfico¹ :Se encontra no índice do dados incendio, sendo esse dado pelo portal de imprensa G1 </p>

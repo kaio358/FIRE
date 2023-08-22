@@ -4,8 +4,8 @@ const rota = express.Router();
 function arduinoRouter(io) {
   rota.get("/arduino", (req, res) => {
     const arduinoData = {
-      temperatura: 26,
-      umidade: 60,
+      "temperatura": 27,
+      "umidade": 60,
 
     };
     console.log(arduinoData); 
