@@ -15,26 +15,44 @@ const io = socketIo(server, {
 });  
 
 const cards = require("./rotas/cards");
-const arduino_update = require("./rotas/arduino_update"); 
+// const arduino_update = require("./rotas/arduino_update"); 
+const arduinoData = require("./teste.json")
 
 app.use(cors());
 app.use(express.json());
 app.use("/", cards);
-app.use("/",arduino_update(io))
-const arduinoData = {
-  "temperatura": 28,
-  "umidade": 60,
 
-};
+
+const fs = require("fs"); // importa o módulo fs
+
 io.on("connection", (socket) => {
     console.log("Novo cliente conectado:", socket.id);
     
-  io.emit("novoArduinoData", JSON.stringify(arduinoData));
+    // lê o arquivo teste.json inicialmente e emite os dados para o cliente
+    fs.readFile("./teste.json", "utf8", (err, data) => {
+      if (err) {
+        console.error(err);
+      } else {
+        io.emit("novoArduinoData", data);
+      }
+    });
+
+    // monitora o arquivo teste.json e emite os dados atualizados para o cliente quando ele for modificado
+    fs.watchFile("./teste.json", (curr, prev) => {
+      fs.readFile("./teste.json", "utf8", (err, data) => {
+        if (err) {
+          console.error(err);
+        } else {
+          io.emit("novoArduinoData", data);
+        }
+      });
+    });
  
   socket.on("disconnect", () => {
     console.log('Cliente desconectado');
   });
 });
+
 
 
 server.listen(5000, () => {
