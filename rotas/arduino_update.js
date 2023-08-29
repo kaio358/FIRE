@@ -1,20 +1,13 @@
-const express = require("express");
-const rota = express.Router();
 
-function arduinoRouter(io) {
-  rota.get("/arduino", (req, res) => {
-    const arduinoData = {
-      "temperatura": 27,
-      "umidade": 60,
+const Data = require("../modelos/data")
 
-    };
-    console.log(arduinoData); 
-    
-    io.emit("novoArduinoData", arduinoData);
-    res.status(200).json({ message: "Dados do Arduino recebidos com sucesso!" });
-  });
-  
+function arduinoRouter(io = 0) {
+ 
+ setInterval(async ()=>{
+    const dado = await Data.listar()
+    io.emit("novoArduinoData", JSON.stringify(dado[0]));
+  },5000)
 
-  return rota;
+ 
 }
 module.exports = arduinoRouter;

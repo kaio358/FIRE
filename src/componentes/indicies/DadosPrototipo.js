@@ -13,7 +13,7 @@ function DadosPrototipo(){
     useEffect(() => {
       socket.connect()
       socket.on("novoArduinoData", (data) => {
-
+        console.log(data);
         setArduinoData(JSON.parse(data) );
       });
       

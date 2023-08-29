@@ -17,10 +17,11 @@ const io = socketIo(server, {
 });  
 
 const cards = require("./rotas/cards");
-// const arduino_update = require("./rotas/arduino_update"); 
-// const arduinoData = require("./teste.json")
+const arduino_update = require("./rotas/arduino_update"); 
+
 
 const conexao = require("./infraestrutura/conexao")
+const tabelas = require("./infraestrutura/tabelas")
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -31,44 +32,44 @@ app.use("/", cards);
 
 
 
-// conexao.connect(erro=>{
-//     if(erro){
-//         console.log(erro);
-//     }else{
-
-//     }
-// })
-
-io.on("connection", (socket) => {
-    console.log("Novo cliente conectado:", socket.id);
-    
-  
-    fs.readFile("./teste.json", "utf8", (err, data) => {
-      if (err) {
-        console.error(err);
-      } else {
-        io.emit("novoArduinoData", data);
-      }
-    });
-
-   
-    fs.watchFile("./teste.json", (curr, prev) => {
-      fs.readFile("./teste.json", "utf8", (err, data) => {
-        if (err) {
-          console.error(err);
-        } else {
-          io.emit("novoArduinoData", data);
-        }
+conexao.connect(erro=>{
+    if(erro){
+        console.log(erro);
+    }else{
+      tabelas.init(conexao)
+      
+      io.on("connection", (socket) => {
+          console.log("Novo cliente conectado:", socket.id);
+          
+          arduino_update(io)
+          // fs.readFile("./teste.json", "utf8", (err, data) => {
+          //   if (err) {
+          //     console.error(err);
+          //   } else {
+          //     io.emit("novoArduinoData", data);
+          //   }
+          // });
+      
+         
+          // fs.watchFile("./teste.json", (curr, prev) => {
+          //   fs.readFile("./teste.json", "utf8", (err, data) => {
+          //     if (err) {
+          //       console.error(err);
+          //     } else {
+          //       io.emit("novoArduinoData", data);
+          //     }
+          //   });
+          // });
+       
+        socket.on("disconnect", () => {
+          console.log('Cliente desconectado');
+        });
       });
-    });
- 
-  socket.on("disconnect", () => {
-    console.log('Cliente desconectado');
-  });
-});
-
-
-
-server.listen(5000, () => {
-  console.log("Conectado: http://localhost:5000");
-});
+      
+      
+      
+      server.listen(5000, () => {
+        console.log("Conectado: http://localhost:5000");
+      });
+    }
+})
