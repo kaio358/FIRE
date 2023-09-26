@@ -13,18 +13,44 @@ function DadosPrototipo(){
     useEffect(() => {
       socket.connect()
       socket.on("novoArduinoData", (data) => {
-        console.log(data);
         setArduinoData(JSON.parse(data) );
       });
       
     }, []);
-
+    const [temp,setTemeperatura] = useState()
+    const [tipo,setTipo] = useState()
+    
+    var contador = 0 
+    useEffect(()=>{
+      const  intervalId = setInterval(()=>{
+        if(contador == 0){
+          setTemeperatura(arduinoData?.temperatura)
+          setTipo("°C")
+          contador++
+        }
+        else if(contador == 1){
+          setTemeperatura((arduinoData?.temperatura * 9/5) + 32)
+          setTipo("°F")
+          contador++
+        }
+        else{
+          setTemeperatura(arduinoData?.temperatura + 273.15)
+          setTipo("K")
+          contador = 0
+        }
+      },6000);
+      return () => {
+        clearInterval(intervalId);
+      };
+    },[])
+  
     return(
         <div id="dados_prototipo" className={styles.dsp}>
             <h1>Dados do Fire</h1>
+          
             {arduinoData ? (
               <div className={styles.caixaDeDados}>
-                <div className={ `${styles.divTemperatura} ${styles.divsDados}`}>{arduinoData.temperatura}° {<PiThermometerBold/>} </div>
+                <div className={ `${styles.divTemperatura} ${styles.divsDados}`} >{temp ? temp : arduinoData.temperatura} {tipo} {<PiThermometerBold/>} </div>
                 <div className={ `${styles.divTemperatura} ${styles.divsDados}`}>{arduinoData.umidade} {<PiDropBold/>} </div>
               
               </div>

@@ -60,7 +60,7 @@ conexao.connect(erro=>{
           //     }
           //   });
           // });
-       
+        
         socket.on("disconnect", () => {
           console.log('Cliente desconectado');
         });

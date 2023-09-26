@@ -13,5 +13,6 @@ class Cards{
             }
         })
     }
+  
 }
 module.exports = new Cards
