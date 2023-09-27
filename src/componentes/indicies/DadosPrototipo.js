@@ -13,42 +13,47 @@ function DadosPrototipo(){
     useEffect(() => {
       socket.connect()
       socket.on("novoArduinoData", (data) => {
+        
         setArduinoData(JSON.parse(data) );
       });
       
     }, []);
-    const [temp,setTemeperatura] = useState()
+    const [temp,setTemeperatura] = useState(0)
     const [tipo,setTipo] = useState()
+    const [timeLeft, setTimeLeft] = useState(3);
+
     
-    var contador = 0 
     useEffect(()=>{
       const  intervalId = setInterval(()=>{
         let aux = 0
-        if(contador == 0){
-          aux = arduinoData.temperatura
+        if (!timeLeft) return;
+        if(timeLeft == 3){
+          aux = arduinoData?.temperatura
           setTemeperatura(aux)
           setTipo("°C")
-          contador++
+          setTimeLeft(timeLeft -1)
         }
-        else if(contador == 1){
-          aux = (arduinoData.temperatura * 9/5) + 32
+        else if(timeLeft == 2){
+          aux = (arduinoData?.temperatura * 9/5) + 32
           setTemeperatura(aux)
           setTipo("°F")
-          contador++
+   
+          setTimeLeft(timeLeft -1)
         }
-        else{
-          aux = arduinoData.temperatura + 273.15
+        else if(timeLeft == 1){
+          aux = arduinoData?.temperatura + 273.15
+          console.log(aux);
           setTemeperatura(aux)
           setTipo("K")
-          contador = 0
+          setTimeLeft(timeLeft -1)
         }
-       
+  
       },6000);
       return () => {
         clearInterval(intervalId);
       };
-    },[])
-  
+    },[timeLeft])
+    if(!timeLeft) setTimeLeft(3)
     return(
         <div id="dados_prototipo" className={styles.dsp}>
             <h1>Dados do Fire</h1>
