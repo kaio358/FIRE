@@ -23,21 +23,26 @@ function DadosPrototipo(){
     var contador = 0 
     useEffect(()=>{
       const  intervalId = setInterval(()=>{
+        let aux = 0
         if(contador == 0){
-          setTemeperatura(arduinoData?.temperatura)
+          aux = arduinoData.temperatura
+          setTemeperatura(aux)
           setTipo("°C")
           contador++
         }
         else if(contador == 1){
-          setTemeperatura((arduinoData?.temperatura * 9/5) + 32)
+          aux = (arduinoData.temperatura * 9/5) + 32
+          setTemeperatura(aux)
           setTipo("°F")
           contador++
         }
         else{
-          setTemeperatura(arduinoData?.temperatura + 273.15)
+          aux = arduinoData.temperatura + 273.15
+          setTemeperatura(aux)
           setTipo("K")
           contador = 0
         }
+       
       },6000);
       return () => {
         clearInterval(intervalId);
